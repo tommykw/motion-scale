@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <StateSet motion:defaultState="@id/scale_up" />
+
+    <Transition
+        motion:constraintSetStart="@id/scale_up"
+        motion:constraintSetEnd="@id/scale_down"
+        motion:motionInterpolator=""
+        motion:duration="800" />
+
+    <ConstraintSet android:id="@+id/scale_up">
+        <Constraint android:id="@+id/square"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            motion:layout_constraintDimensionRatio="1"
+            motion:layout_constraintTop_toTopOf="@id/vertical_middle"
+            motion:layout_constraintStart_toStartOf="@id/horizontal_middle"
+            motion:layout_constraintBottom_toBottomOf="@id/vertical_middle" />
+    </ConstraintSet>
+
+    <ConstraintSet
+        android:id="@+id/scale_down"
+        motion:deriveConstraintsFrom="@id/scale_up" />
+</MotionScene>
